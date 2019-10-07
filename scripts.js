@@ -62,9 +62,9 @@ $('body').keypress(function (e) {
   let x = e.which;
   if (x === currentLetter.charCodeAt(0)) {
     // console.log(currentLetter);
-    $('#yellow-block').animate({'marginLeft': '6px'});
+    $('#yellow-block').animate({'marginLeft': '+=18px'});
+    $('#feedback').addClass('.glyphicon-ok');
     clPosition++;
-    
     currentLetter = currentSentence[clPosition];
     $('#target-letter').text(currentLetter);
   } 
