@@ -14,7 +14,8 @@ let sentences = [
   'nee ene ate'
 ];
 
-let currentSentence = sentences[0];
+let cs = 0;
+let currentSentence = sentences[cs];
 let clPosition = 0;
 let currentLetter = currentSentence[clPosition];
 
@@ -63,13 +64,20 @@ $('body').keypress(function (e) {
   if (x === currentLetter.charCodeAt(0)) {
     // console.log(currentLetter);
     $('#yellow-block').animate({'marginLeft': '+=18px'});
-    $('#feedback').addClass('.glyphicon-ok');
+    $('#feedback').append('<span class=" glyphicon glyphicon-ok"></span>')
     clPosition++;
     currentLetter = currentSentence[clPosition];
     $('#target-letter').text(currentLetter);
-  } 
+    if (clPosition === currentSentence.length) {
+      cs++;
+      currentSentence = sentences[cs];
+      $('#sentence').text(currentSentence);
+      $('#feedback').empty();
+      $('#yellow-block').finish().css('marginLeft', '0px');
+    }
+  } else {
+    $('#feedback').append('<span class=" glyphicon glyphicon-remove"></span>')
+  }
+
 
 });
-
-
-
