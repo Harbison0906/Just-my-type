@@ -63,21 +63,25 @@ $('body').keypress(function (e) {
   let x = e.which;
   if (x === currentLetter.charCodeAt(0)) {
     // console.log(currentLetter);
-    $('#yellow-block').animate({'marginLeft': '+=18px'});
+    $('#yellow-block').animate({ 'marginLeft': '+=18px' });
     $('#feedback').append('<span class=" glyphicon glyphicon-ok"></span>')
     clPosition++;
     currentLetter = currentSentence[clPosition];
     $('#target-letter').text(currentLetter);
     if (clPosition === currentSentence.length) {
+      clPosition = 0
+      currentLetter = currentSentence[clPosition];
       cs++;
       currentSentence = sentences[cs];
+
       $('#sentence').text(currentSentence);
       $('#feedback').empty();
       $('#yellow-block').finish().css('marginLeft', '0px');
+      console.log(currentLetter);
+      console.log(currentSentence);
     }
   } else {
     $('#feedback').append('<span class=" glyphicon glyphicon-remove"></span>')
   }
-
 
 });
