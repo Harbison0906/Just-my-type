@@ -6,13 +6,6 @@ let sentences = [
   'nee ene ate ite tent tiet ent ine ene ete ene ate'
 ];
 
-// let sentences = [
-//   'ten ate eate',
-//   'Too ato tOO aNot',
-//   'oat itain nean',
-//   'itant eate eat',
-//   'nee ene ate'
-// ];
 
 // track number of words
 let numberOfWords = 0;
